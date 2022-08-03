@@ -12,6 +12,11 @@ var gravity: float
 var max_jump_velocity: float
 var min_jump_velocity: float
 
+var frames := {
+	Globals.CharacterType.BEAR: preload("res://game/character/BearFrames.tres"),
+	Globals.CharacterType.BABKA: preload("res://game/character/BabkaFrames.tres"),
+	Globals.CharacterType.GOP: preload("res://game/character/GopFrames.tres"),
+}
 
 func _ready() -> void:
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
@@ -19,6 +24,8 @@ func _ready() -> void:
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
 
 func _physics_process(delta: float) -> void:
+	if not Globals.is_game_started:
+		return
 	velocity.x = speed
 	velocity.y += gravity * delta
 	
@@ -30,3 +37,9 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = move_and_slide(velocity, Vector2.UP)
 
+func set_character_type(character_type: int):
+	var animated_sprite := $AnimatedSprite
+	var sprite_frames = frames.get(character_type, frames[0])
+	animated_sprite.frames = sprite_frames
+	animated_sprite.animation = "run"
+	animated_sprite.play()

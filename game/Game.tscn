@@ -10,9 +10,9 @@
 [ext_resource path="res://assets/parallax/layer_9_wall.png" type="Texture" id=8]
 [ext_resource path="res://assets/parallax/layer_3_moon.png" type="Texture" id=9]
 [ext_resource path="res://game/Game.gd" type="Script" id=10]
-[ext_resource path="res://game/character/Character.tscn" type="PackedScene" id=11]
 [ext_resource path="res://game/floor/Floor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://game/hud/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game/main_ui/MainUI.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 10 )
@@ -20,6 +20,8 @@ script = ExtResource( 10 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 13 )]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource( 14 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -94,12 +96,14 @@ motion_mirroring = Vector2( 723, 0 )
 texture = ExtResource( 8 )
 centered = false
 
-[node name="Character" parent="." instance=ExtResource( 11 )]
-position = Vector2( 66, 244 )
-
 [node name="Floor" parent="." instance=ExtResource( 12 )]
-follow_target_path = NodePath("../Character")
+position = Vector2( 115, 254 )
 
 [node name="Camera2D" type="Camera2D" parent="Floor"]
-position = Vector2( 186, -126 )
+position = Vector2( 153, -125 )
 current = true
+
+[node name="StartGamePosition" type="Position2D" parent="."]
+position = Vector2( 115, 244 )
+
+[node name="Tween" type="Tween" parent="."]
