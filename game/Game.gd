@@ -12,7 +12,6 @@ var obstacles := [
 	preload("res://game/obstacles/bag/Bag.tscn")
 ]
 
-
 var distance_to_next_obstacle := 0
 var screen_width := 512.0
 var points := 0.0
@@ -27,6 +26,7 @@ onready var start_game_position := $StartGamePosition
 func _ready() -> void:
 	screen_width = get_viewport_rect().size.x
 	Globals.connect("game_started", self, "start_game")
+	Globals.connect("game_over", self, "game_over")
 	Globals.connect("character_selected", self, "spawn_character")
 
 func _process(delta: float) -> void:
@@ -64,3 +64,6 @@ func start_game():
 	distance_to_next_obstacle += character.global_position.x
 	points = 0
 
+func game_over():
+	Ysdk.update_player_score(points)
+	points = 0.0

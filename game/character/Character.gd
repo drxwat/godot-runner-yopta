@@ -43,3 +43,7 @@ func set_character_type(character_type: int):
 	animated_sprite.frames = sprite_frames
 	animated_sprite.animation = "run"
 	animated_sprite.play()
+
+
+func _on_ObstacleArea2D_body_entered(body: Obstacle) -> void:
+	Globals.emit_signal("game_over")

@@ -10,3 +10,6 @@ export_presets.cfg
 
 # Mac-specific ignores
 *.DS_Store
+
+export
+export.zip
