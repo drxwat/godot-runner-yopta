@@ -13,3 +13,8 @@ export_presets.cfg
 
 export
 export.zip
+
+!build/
+
+build/*
+!build/yandex.js

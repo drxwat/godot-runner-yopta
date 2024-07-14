@@ -11,10 +11,10 @@
 [ext_resource path="res://assets/parallax/layer_3_moon.png" type="Texture" id=9]
 [ext_resource path="res://game/Game.gd" type="Script" id=10]
 [ext_resource path="res://game/floor/Floor.tscn" type="PackedScene" id=12]
-[ext_resource path="res://game/hud/HUD.tscn" type="PackedScene" id=13]
-[ext_resource path="res://game/main_ui/MainUI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/hud/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/main_ui/MainUI.tscn" type="PackedScene" id=14]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource( 10 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

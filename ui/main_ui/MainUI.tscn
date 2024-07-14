@@ -1,14 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://game/main_ui/character_portrait/CharacterPortrait.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/main_ui/MainUI.gd" type="Script" id=2]
+[ext_resource path="res://ui/main_ui/character_portrait/CharacterPortrait.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/main_ui/MainUI.gd" type="Script" id=2]
 [ext_resource path="res://assets/characters/babka_atlas.tres" type="Texture" id=3]
 [ext_resource path="res://assets/characters/gop_atlas.tres" type="Texture" id=4]
-[ext_resource path="res://assets/fonts/ds_moster.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://game/main_ui/leaderboard_entry/LeaderboardEntry.tscn" type="PackedScene" id=6]
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 5 )
+[ext_resource path="res://ui/main_ui/leaderboard_entry/LeaderboardEntry.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.188235, 0.188235, 0.188235, 0.509804 )
@@ -40,16 +36,14 @@ margin_bottom = 52.0
 [node name="Label" type="Label" parent="VBoxContainer/TOPScore"]
 margin_right = 492.0
 margin_bottom = 24.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "ТВОЙ РЕЗУЛЬТАТ"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "ТВОЙ РЕКОРД"
 align = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/TOPScore"]
 margin_top = 28.0
 margin_right = 492.0
 margin_bottom = 52.0
-custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 
@@ -88,27 +82,27 @@ character_type = 2
 [node name="TextureRect" parent="VBoxContainer/CharacterSelectorContainer/Character3/CenterContainer" index="0"]
 texture = ExtResource( 4 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MiniLeaderboard" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 144.0
 margin_right = 492.0
-margin_bottom = 207.0
+margin_bottom = 216.0
 custom_constants/separation = 0
 
-[node name="LeaderboardEntry" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+[node name="LeaderboardEntry" parent="VBoxContainer/MiniLeaderboard" instance=ExtResource( 6 )]
 margin_right = 492.0
-margin_bottom = 21.0
+margin_bottom = 24.0
 alignment = 1
 
-[node name="LeaderboardEntry2" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 21.0
+[node name="LeaderboardEntry2" parent="VBoxContainer/MiniLeaderboard" instance=ExtResource( 6 )]
+margin_top = 24.0
 margin_right = 492.0
-margin_bottom = 42.0
+margin_bottom = 48.0
 alignment = 1
 
-[node name="LeaderboardEntry3" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 42.0
+[node name="LeaderboardEntry3" parent="VBoxContainer/MiniLeaderboard" instance=ExtResource( 6 )]
+margin_top = 48.0
 margin_right = 492.0
-margin_bottom = 63.0
+margin_bottom = 72.0
 alignment = 1
 
 [node name="Tween" type="Tween" parent="."]

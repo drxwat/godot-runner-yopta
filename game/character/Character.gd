@@ -18,14 +18,16 @@ var frames := {
 	Globals.CharacterType.GOP: preload("res://game/character/GopFrames.tres"),
 }
 
+onready var animated_sprite := $AnimatedSprite
+
 func _ready() -> void:
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
 
 func _physics_process(delta: float) -> void:
-	if not Globals.is_game_started:
-		return
+#	if not Globals.is_game_started:
+#		return
 	velocity.x = speed
 	velocity.y += gravity * delta
 	

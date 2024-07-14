@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2019-12-11_-_Retro_Platforming_-_David_Fesliyan.ogg-e2845660ab85d5f2d13cf4f2f25a5085.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/2019-12-11_-_Retro_Platforming_-_David_Fesliyan.ogg"
+dest_files=[ "res://.import/2019-12-11_-_Retro_Platforming_-_David_Fesliyan.ogg-e2845660ab85d5f2d13cf4f2f25a5085.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -20,7 +20,9 @@ func check_lock_status():
 
 
 func _on_CharacterPortrait_gui_input(event: InputEvent) -> void:
-
+	var game = get_tree().get_nodes_in_group("game")[0]
+	if game.character_type != null:
+		return
 	var is_selected = (event is InputEventMouseButton and event.pressed) or event.is_action_pressed("jump")
 	if is_selected and not is_locked():
 		Globals.emit_signal("character_selected", character_type)
